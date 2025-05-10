@@ -1,6 +1,8 @@
 # Week-8-Database-Project
 
 Student Record Management System
+
+
 A complete database management system built with MySQL and Node.js/Express to manage student records, courses, enrollments, and departments.
 
 Project Overview
