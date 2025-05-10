@@ -56,10 +56,12 @@ ORM: Native MySQL Driver
 Setup Instructions
 
 Prerequisites
+
 Node.js (v14 or higher)
 MySQL (v8.0 or higher)
 
 Database Setup
+
 Make sure MySQL server is running
 Log into MySQL and run the database.sql script:
 mysql -u your_username -p < database.sql
@@ -71,6 +73,7 @@ Handles foreign key relationships properly
 
 Environment Configuration
 
+
 Open config/db.js and update the MySQL connection details:
 const db = mysql.createConnection({
   host: "localhost",
@@ -78,17 +81,19 @@ const db = mysql.createConnection({
   password: "your_password", // Replace with your MySQL password
   database: "student_records",
 });
+
 MySQL 8+ Authentication Notes
 If you encounter this error:
 
 Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server
+
 You can fix it by either:
 
 Creating a MySQL user with the legacy authentication method:
 ALTER USER 'your_username'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';
 FLUSH PRIVILEGES;
 Installing and using the mysql2 package instead:
-npm install mysql2
+pnpm install mysql2
 Then update the import in config/db.js to use mysql2 instead.
 
 Installation
@@ -147,11 +152,11 @@ Week-8-Database-Project/
 ├── config/
 │   └── db.js                # Database connection configuration
 ├── routes/
-│   ├── students.js          # Students API routes
-│   ├── courses.js           # Courses API routes
+│   ├──courses.js            # courses API routes
+│   ├── departments.js       # departments API routes
 │   ├── enrollments.js       # Enrollments API routes
-│   └── departments.js       # Departments API routes
-├── database.sql             # SQL file with database schema and sample data
+│   └── students.js          # students API routes
+├── DB.sql             # SQL file with database schema and sample data
 ├── index.js                 # Main server file
 ├── package.json             # Project dependencies
 └── README.md                # Project documentation
