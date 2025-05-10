@@ -6,6 +6,7 @@ Student Record Management System
 A complete database management system built with MySQL and Node.js/Express to manage student records, courses, enrollments, and departments.
 
 Project Overview
+
 The Student Record Management System is designed to handle all aspects of student academic records management, including:
 
 Student information management
@@ -13,14 +14,20 @@ Course catalog management
 Student enrollment in courses
 Department organization
 Grade recording and tracking
+
+
 Database Structure
+
 The system consists of four main entities with their relationships:
 
 Students: Stores student personal information
 Courses: Contains course details and which department they belong to
 Departments: Contains department information
 Enrollments: Manages the many-to-many relationship between students and courses, including grades
+
+
 Entity Relationship Diagram (ERD)
+
 +------------+       +-------------+       +-------------+
 | Students   |       | Enrollments |       | Courses     |
 +------------+       +-------------+       +-------------+
@@ -41,13 +48,17 @@ Entity Relationship Diagram (ERD)
                                           | head_of_dept   |
                                           +----------------+
 Technology Stack
+
 Database: MySQL
 Backend: Node.js with Express
 ORM: Native MySQL Driver
+
 Setup Instructions
+
 Prerequisites
 Node.js (v14 or higher)
 MySQL (v8.0 or higher)
+
 Database Setup
 Make sure MySQL server is running
 Log into MySQL and run the database.sql script:
@@ -57,7 +68,9 @@ The database script is designed to be idempotent - it can be run multiple times 
 Uses CREATE TABLE IF NOT EXISTS for all tables
 Only inserts sample data if it doesn't already exist
 Handles foreign key relationships properly
+
 Environment Configuration
+
 Open config/db.js and update the MySQL connection details:
 const db = mysql.createConnection({
   host: "localhost",
@@ -142,14 +155,19 @@ Week-8-Database-Project/
 ├── index.js                 # Main server file
 ├── package.json             # Project dependencies
 └── README.md                # Project documentation
+
 Troubleshooting
+
 Module Import Errors
+
 If you encounter module import errors, ensure all route files are using the same module syntax. This project uses CommonJS (require/module.exports) rather than ES modules (import/export).
 
 Database Connection Issues
+
 Verify MySQL is running with mysql --version
 Check that the database name, username, and password in config/db.js match your MySQL setup
 Make sure the student_records database exists
+
 Data Duplication on Server Restart
 The SQL script in database.sql has been updated to prevent duplicating data when it runs multiple times. Each INSERT statement now checks if the data exists before inserting it.
 
